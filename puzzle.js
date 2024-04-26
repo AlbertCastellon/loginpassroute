@@ -1,102 +1,102 @@
 // Snippets de código para poder componer el programa
 
-//Usado?: 
+//Usado?: X
   const middlewares = require('./middlewares');
 //--- Explicación: 
-
+//Importa las funciones del fichero middlewares en un formato de objeto
 // -------------------------------------------------------------------------------------
 
-//Usado?: 
+//Usado?: X
 const bodyParser = require('body-parser');
 //--- Explicación:
-
+//Importa el módulo body parse a formato objeto
 // -------------------------------------------------------------------------------------
 
-//Usado?: 
+//Usado?: X
 const session = require('express-session');
 //--- Explicación:
 
 // -------------------------------------------------------------------------------------
 
-//Usado?: 
+//Usado?: X
 const express = require('express');
 //--- Explicación:
 
 // -------------------------------------------------------------------------------------
 
-//Usado?: 
+//Usado?: X
 const bodyParser = require('body-parser');
 //--- Explicación:
 
 // -------------------------------------------------------------------------------------
 
-//Usado?: 
+//Usado?: X
 const session = require('express-session');
 //--- Explicación:
 
 // -------------------------------------------------------------------------------------
 
-//Usado?: 
+//Usado?: X
 const dotenv = require('dotenv');
 //--- Explicación:
 
 // -------------------------------------------------------------------------------------
 
-//Usado?: 
+//Usado?: X
 const middlewares = require('./middlewares');
 //--- Explicación:
-
+//Importa las funciones del fichero middlewares en un formato de objeto
 // -------------------------------------------------------------------------------------
 
-//Usado?: 
+//Usado?: X
 const routes = require('./routes');
 //--- Explicación:
-
+//Importa las funciones del fichero routes en un formato de objeto
 // -------------------------------------------------------------------------------------
 
-//Usado?: 
+//Usado?: X
 dotenv.config();
 //--- Explicación:
-
+//Usa el metodo cinfig de la dependencia dotenv, lee el fichero .env parsea su contenido y lo assigna a process.env, devuelve un objeto con el contenido y un error si falla.
 // -------------------------------------------------------------------------------------
 
-//Usado?: 
+//Usado?: X
 const app = express();
 //--- Explicación:
 
 // -------------------------------------------------------------------------------------
 
-//Usado?: 
+//Usado?: X
 const PORT = 4000;
 //--- Explicación:
-
+//establece el puerto a un número en este caso 4000
 // -------------------------------------------------------------------------------------
 
-//Usado?: 
+//Usado?: X
 const dotenv = require('dotenv');
 //--- Explicación:
-
+//Importa la dependencia dotenv
 // -------------------------------------------------------------------------------------
 
-//Usado?:
+//Usado?: X
 dotenv.config();
 //--- Explicación:
-
+//Usa el metodo cinfig de la dependencia dotenv, lee el fichero .env parsea su contenido y lo assigna a process.env, devuelve un objeto con el contenido y un error si falla.
 // -------------------------------------------------------------------------------------
 
-//Usado?:
+//Usado?: X
 middlewares.setupApp(app);
 //--- Explicación: 
 
 // -------------------------------------------------------------------------------------
 
-//Usado?:
+//Usado?: X
 routes.setup(app);
 //--- Explicación: 
 
 // -------------------------------------------------------------------------------------
 
-//Usado?:
+//Usado?: X
 const validarPalabraMiddleware = (req, res, next) => {
   const palabraCorrecta = process.env.PALABRA_SECRETA || '';
 
@@ -113,7 +113,7 @@ const validarPalabraMiddleware = (req, res, next) => {
 // -------------------------------------------------------------------------------------
 
 
-//Usado?:
+//Usado?: X
 const setup = (app) => {
   app.get('/', (req, res) => {
     const mensajeError = req.query.error
@@ -130,7 +130,7 @@ const setup = (app) => {
 // -------------------------------------------------------------------------------------
 
 
-//Usado?:
+//Usado?: X
 res.send(`
   <html>
     <body>
@@ -149,7 +149,7 @@ res.send(`
 
 // -------------------------------------------------------------------------------------
 
-
+//Usado?: X
 const setupAPP = (app) => {
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(session({
@@ -158,8 +158,11 @@ const setupAPP = (app) => {
     saveUninitialized: true,
   }));
 };
+//--- Explicación: 
 
-//Usado?:
+// -------------------------------------------------------------------------------------
+
+//Usado?: X
 app.post('/profile', middlewares.validarPalabraMiddleware, (req, res) => {
   res.send(`
     <h1>Ruta del Perfil</h1>
@@ -172,14 +175,14 @@ app.post('/profile', middlewares.validarPalabraMiddleware, (req, res) => {
 
 // -------------------------------------------------------------------------------------
 
-//Usado?:
+//Usado?: X
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //--- Explicación: 
 
 // -------------------------------------------------------------------------------------
 
-//Usado?:
+//Usado?: X
 app.use(session({
   secret: process.env.PALABRA_SECRETA || 'secretoSuperSecreto',
   resave: false,
@@ -190,7 +193,7 @@ app.use(session({
 
 // -------------------------------------------------------------------------------------
 
-//Usado?:
+//Usado?: X
 app.listen(PORT, () => {
   console.log(`Servidor en ejecución en http://localhost:${PORT}`);
 });
@@ -198,7 +201,7 @@ app.listen(PORT, () => {
 
 // -------------------------------------------------------------------------------------
 
-//Usado?:
+//Usado?: X
 const verificarSesionMiddleware = (req, res, next) => {
   if (req.session.palabraSecreta) {
     next();
@@ -211,7 +214,7 @@ const verificarSesionMiddleware = (req, res, next) => {
 // -------------------------------------------------------------------------------------
 
 
-//Usado?:
+//Usado?: X
 app.get('/profile', middlewares.verificarSesionMiddleware, (req, res) => {
   res.send(`
     <h1>Ruta del Perfil (Sesión activa)</h1>
@@ -225,7 +228,7 @@ app.get('/profile', middlewares.verificarSesionMiddleware, (req, res) => {
 // -------------------------------------------------------------------------------------
 
 
-//Usado?:
+//Usado?: X
 app.post('/logout', (req, res) => {
   req.session.destroy((err) => {
     if (err) {
@@ -238,7 +241,7 @@ app.post('/logout', (req, res) => {
 
 // -------------------------------------------------------------------------------------
 
-//Usado?:
+//Usado?: X
 module.exports = {
   setup,
 };
@@ -246,7 +249,7 @@ module.exports = {
 
 // -------------------------------------------------------------------------------------
 
-//Usado?:
+//Usado?: X
 module.exports = {
   validarPalabraMiddleware,
   verificarSesionMiddleware,
