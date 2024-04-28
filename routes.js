@@ -10,7 +10,7 @@ const setup = (app) => {
         return res.redirect('/profile');
       }
       //Aquí va código dentro
-       
+
             res.send(`
         <html>
             <body>
