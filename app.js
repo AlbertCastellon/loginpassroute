@@ -18,7 +18,7 @@ app.use(session({
 }));
 
 routes.setup(app);
-//middlewares.setupApp(app)
+//middlewares.setupApp(app) Esta comentado porque nos daba error no importa donde lo pusieramos y a excepcion de que parece que verificarSesionMiddleware no se active sin hacerlo expresamente, funciona correctamente.
 app.post('/profile', middlewares.validarPalabraMiddleware, (req, res) => {
     res.send(`
       <h1>Ruta del Perfil</h1>

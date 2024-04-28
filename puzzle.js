@@ -9,37 +9,37 @@
 //Usado?: X
 const bodyParser = require('body-parser');
 //--- Explicación:
-//Importa el módulo body parse a formato objeto
+//Importa la dependencia body-parser
 // -------------------------------------------------------------------------------------
 
 //Usado?: X
 const session = require('express-session');
 //--- Explicación:
-
+//Importa la dependencia express-session
 // -------------------------------------------------------------------------------------
 
 //Usado?: X
 const express = require('express');
 //--- Explicación:
-
+//Importa la dependencia express
 // -------------------------------------------------------------------------------------
 
 //Usado?: X
 const bodyParser = require('body-parser');
 //--- Explicación:
-
+//Importa la dependencia body-parser
 // -------------------------------------------------------------------------------------
 
 //Usado?: X
 const session = require('express-session');
 //--- Explicación:
-
+//Importa la dependencia express-session
 // -------------------------------------------------------------------------------------
 
 //Usado?: X
 const dotenv = require('dotenv');
 //--- Explicación:
-
+//Importa la dependencia dotenv
 // -------------------------------------------------------------------------------------
 
 //Usado?: X
@@ -63,13 +63,13 @@ dotenv.config();
 //Usado?: X
 const app = express();
 //--- Explicación:
-
+// Iniciamos en el proyecto para que pueda utilizar express y sus funciones
 // -------------------------------------------------------------------------------------
 
 //Usado?: X
 const PORT = 4000;
 //--- Explicación:
-//establece el puerto a un número en este caso 4000
+//Establece el puerto a un número en este caso 4000
 // -------------------------------------------------------------------------------------
 
 //Usado?: X
@@ -87,13 +87,13 @@ dotenv.config();
 //Usado?: X
 middlewares.setupApp(app);
 //--- Explicación: 
-
+//Llama la funcion setupApp que forma parte del objeto middlewares previamente importado
 // -------------------------------------------------------------------------------------
 
 //Usado?: X
 routes.setup(app);
 //--- Explicación: 
-
+//Llama la funcion setup que forma parte del objeto routes previamente importado
 // -------------------------------------------------------------------------------------
 
 //Usado?: X
@@ -108,7 +108,7 @@ const validarPalabraMiddleware = (req, res, next) => {
   }
 };
 //--- Explicación: 
-
+// Función que recupera, valida y redirecciona en caso de error.
 
 // -------------------------------------------------------------------------------------
 
@@ -125,7 +125,7 @@ const setup = (app) => {
   //Aquí va código dentro
 })}
 //--- Explicación: 
-
+// Función que da error en caso de poner bien la palabra y reedirigirnos a otra página en caso de acertar la palabra.
 
 // -------------------------------------------------------------------------------------
 
@@ -145,8 +145,8 @@ res.send(`
   </html>
 `);
 //--- Explicación: 
-
-
+//Envia como respuesta el documento de la pagina de inicio con la variable mensaje error que depende de si has intentado loguear  
+//anteriormente y fallado o aun no lo has intentado.
 // -------------------------------------------------------------------------------------
 
 //Usado?: X
@@ -159,7 +159,7 @@ const setupAPP = (app) => {
   }));
 };
 //--- Explicación: 
-
+//Función que parsea información en un formato que permite tanto objetos como arrays y crea una sesión con un objeto de información
 // -------------------------------------------------------------------------------------
 
 //Usado?: X
@@ -172,14 +172,14 @@ app.post('/profile', middlewares.validarPalabraMiddleware, (req, res) => {
   `);
 });
 //--- Explicación: 
-
+//Chequea que la palabra introducida en el imput sea la correcta y guarda la palabra en la sessión
 // -------------------------------------------------------------------------------------
 
 //Usado?: X
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //--- Explicación: 
-
+//Parsea información en un formato que permite tanto objetos como arrays
 // -------------------------------------------------------------------------------------
 
 //Usado?: X
@@ -190,7 +190,7 @@ app.use(session({
 }));
 
 //--- Explicación: 
-
+//Crea una sesión con un objeto.
 // -------------------------------------------------------------------------------------
 
 //Usado?: X
@@ -198,7 +198,7 @@ app.listen(PORT, () => {
   console.log(`Servidor en ejecución en http://localhost:${PORT}`);
 });
 //--- Explicación: 
-
+//Pone en marcha la app para poder abrir la página en el puerto especificado previamente.
 // -------------------------------------------------------------------------------------
 
 //Usado?: X
@@ -210,7 +210,7 @@ const verificarSesionMiddleware = (req, res, next) => {
   }
 };
 //--- Explicación: 
-
+//Middleware que limita a que solo los usuarios autorizados que tengan en la session palabraSecreta puedan acceder, si no esta te pide que loguees.
 // -------------------------------------------------------------------------------------
 
 
@@ -224,7 +224,7 @@ app.get('/profile', middlewares.verificarSesionMiddleware, (req, res) => {
   `);
 });
 //--- Explicación: 
-
+// Te lleva a tu perfil una vez has iniciado sesión.
 // -------------------------------------------------------------------------------------
 
 
@@ -238,7 +238,7 @@ app.post('/logout', (req, res) => {
   });
 });
 //--- Explicación: 
-
+// Cierra tu sesión tras haber iniciado con anterioridad a ella.
 // -------------------------------------------------------------------------------------
 
 //Usado?: X
@@ -246,7 +246,7 @@ module.exports = {
   setup,
 };
 //--- Explicación:
-
+// Exporta la función para que pueda ser utilizada en otros ficheros.
 // -------------------------------------------------------------------------------------
 
 //Usado?: X
@@ -256,6 +256,6 @@ module.exports = {
   setupAPP,
 };
 //--- Explicación:
-
+//Exporta las funciones creadas previamente en formato de objeto para que puedan ser usadas en otros ficheros.
 // -------------------------------------------------------------------------------------
 
